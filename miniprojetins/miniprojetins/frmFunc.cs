@@ -13,7 +13,8 @@ namespace miniprojetins
 {
     public partial class frmFunc : Form
     {
-        string stringConexao = "Data Source=localhost;Initial Catalog=t14_miniprojeto;User ID=sa;Password=123456";
+
+        string stringConexao = MDIPrinc.stringConexao;
 
         public frmFunc()
         {

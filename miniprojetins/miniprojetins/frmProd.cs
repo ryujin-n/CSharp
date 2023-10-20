@@ -13,8 +13,7 @@ namespace miniprojetins
 {
     public partial class frmProd : Form
     {
-        string stringConexao = "Data Source=localhost;Initial Catalog=t14_miniprojeto;User ID=sa;Password=123456";
-
+        string stringConexao = MDIPrinc.stringConexao;
         private void testcon()
         {
             SqlConnection conn = new SqlConnection(stringConexao);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zLxenxW1rUF6eq9eB1FdcgznF336jFgad3itk19QnXdU/cFI/ut8+YQA7H1w1PFCO7Z4QgbNXYxPabz24OUVEA==",
+  "dgSpecHash": "UOAmltGAYeZQqfHodRClsUcHv7Jua+lkTRFtELw0Q8c+l3DbR9Is0ElSwB72jK6PUj3fpCWcXR59eejf3ZObeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\miles.jsantos\\source\\repos\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
+  "projectFilePath": "C:\\Users\\miles.jsantos\\source\\repos\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\miles.jsantos\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\miles.jsantos\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

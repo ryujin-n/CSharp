@@ -14,11 +14,23 @@ namespace miniprojetins
     {
         private int childFormNumber = 0;
 
+        public static string stringConexao = "Data Source=localhost;Initial Catalog=t14_miniprojeto;User ID=sa;Password=123456";
+        public static string idUser;
+        public static string LoginUser;
+        public static string NomeUser;
+
+
         public MDIPrinc()
         {
             InitializeComponent();
         }
 
+        private void MDIPrinc_Load(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            frm.ShowDialog();
+
+        }
 
         private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -54,5 +66,6 @@ namespace miniprojetins
             frm.MdiParent= this;
             frm.Show();
         }
+
     }
 }
