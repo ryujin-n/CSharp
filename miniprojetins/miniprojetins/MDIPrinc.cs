@@ -27,8 +27,10 @@ namespace miniprojetins
 
         private void MDIPrinc_Load(object sender, EventArgs e)
         {
+ 
             frmLogin frm = new frmLogin();
             frm.ShowDialog();
+            lblStat.Text = frmLogin.NomeUser;
 
         }
 
@@ -67,5 +69,9 @@ namespace miniprojetins
             frm.Show();
         }
 
+
+
+
+ 
     }
 }

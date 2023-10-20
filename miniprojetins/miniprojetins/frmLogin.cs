@@ -13,7 +13,10 @@ namespace miniprojetins
 {
     public partial class frmLogin : Form
     {
-        string stringConexão = MDIPrinc.stringConexao;
+        string stringConexao = MDIPrinc.stringConexao;
+        public static string idUser;
+        public static string LoginUser;
+        public static string NomeUser;
 
         public frmLogin()
         {
@@ -27,8 +30,11 @@ namespace miniprojetins
 
         private void btoLogin_Click(object sender, EventArgs e)
         {
-            string sql = "select * from usuario where login_usuario = '" + txtLog.Text + "and senha_usuario = '" + txtSen.Text;
-            SqlConnection conn = new SqlConnection(stringConexão);
+            string sql = "select * from usuario where " +
+                "login_usuario = '" + txtLog.Text + "' and " +
+                "senha_usuario = '" + txtSen.Text + "'";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.Text;
             SqlDataReader reader;

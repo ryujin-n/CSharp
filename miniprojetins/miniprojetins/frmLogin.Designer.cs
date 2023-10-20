@@ -70,7 +70,7 @@
             this.btoSair.Location = new System.Drawing.Point(159, 16);
             this.btoSair.Name = "btoSair";
             this.btoSair.Size = new System.Drawing.Size(75, 24);
-            this.btoSair.TabIndex = 0;
+            this.btoSair.TabIndex = 2;
             this.btoSair.Text = "Sair";
             this.btoSair.UseVisualStyleBackColor = true;
             this.btoSair.Click += new System.EventHandler(this.btoSair_Click);
@@ -80,7 +80,7 @@
             this.btoLogin.Location = new System.Drawing.Point(78, 16);
             this.btoLogin.Name = "btoLogin";
             this.btoLogin.Size = new System.Drawing.Size(75, 24);
-            this.btoLogin.TabIndex = 0;
+            this.btoLogin.TabIndex = 1;
             this.btoLogin.Text = "Login";
             this.btoLogin.UseVisualStyleBackColor = true;
             this.btoLogin.Click += new System.EventHandler(this.btoLogin_Click);
@@ -101,8 +101,9 @@
             // 
             this.txtSen.Location = new System.Drawing.Point(6, 81);
             this.txtSen.Name = "txtSen";
+            this.txtSen.PasswordChar = 'ඞ';
             this.txtSen.Size = new System.Drawing.Size(235, 23);
-            this.txtSen.TabIndex = 1;
+            this.txtSen.TabIndex = 2;
             // 
             // txtLog
             // 
