@@ -33,12 +33,15 @@
             this.telasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordemDeServiçoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.localEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblStat = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -69,35 +72,48 @@
             // usuárioToolStripMenuItem
             // 
             this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuárioToolStripMenuItem.Text = "Usuário";
             this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
             // 
             // produtoToolStripMenuItem
             // 
+            this.produtoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ordemDeServiçoToolStripMenuItem1});
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             this.produtoToolStripMenuItem.Click += new System.EventHandler(this.produtoToolStripMenuItem_Click);
             // 
+            // ordemDeServiçoToolStripMenuItem1
+            // 
+            this.ordemDeServiçoToolStripMenuItem1.Name = "ordemDeServiçoToolStripMenuItem1";
+            this.ordemDeServiçoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ordemDeServiçoToolStripMenuItem1.Text = "Ordem de Serviço";
+            this.ordemDeServiçoToolStripMenuItem1.Click += new System.EventHandler(this.ordemDeServiçoToolStripMenuItem1_Click);
+            // 
             // funcionárioToolStripMenuItem
             // 
+            this.funcionárioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.movimentaçãoToolStripMenuItem});
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
             // fornecedorToolStripMenuItem
             // 
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem.Click += new System.EventHandler(this.fornecedorToolStripMenuItem_Click);
             // 
             // localEstoqueToolStripMenuItem
             // 
+            this.localEstoqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemEstoqueToolStripMenuItem});
             this.localEstoqueToolStripMenuItem.Name = "localEstoqueToolStripMenuItem";
-            this.localEstoqueToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.localEstoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.localEstoqueToolStripMenuItem.Text = "LocalEstoque";
             this.localEstoqueToolStripMenuItem.Click += new System.EventHandler(this.localEstoqueToolStripMenuItem_Click);
             // 
@@ -117,6 +133,20 @@
             this.lblStat.Name = "lblStat";
             this.lblStat.Size = new System.Drawing.Size(39, 17);
             this.lblStat.Text = "Status";
+            // 
+            // movimentaçãoToolStripMenuItem
+            // 
+            this.movimentaçãoToolStripMenuItem.Name = "movimentaçãoToolStripMenuItem";
+            this.movimentaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.movimentaçãoToolStripMenuItem.Text = "Movimentação";
+            this.movimentaçãoToolStripMenuItem.Click += new System.EventHandler(this.movimentaçãoToolStripMenuItem_Click);
+            // 
+            // itemEstoqueToolStripMenuItem
+            // 
+            this.itemEstoqueToolStripMenuItem.Name = "itemEstoqueToolStripMenuItem";
+            this.itemEstoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itemEstoqueToolStripMenuItem.Text = "Item Estoque";
+            this.itemEstoqueToolStripMenuItem.Click += new System.EventHandler(this.itemEstoqueToolStripMenuItem_Click);
             // 
             // MDIPrinc
             // 
@@ -153,6 +183,9 @@
         private ToolStripMenuItem funcionárioToolStripMenuItem;
         private ToolStripMenuItem fornecedorToolStripMenuItem;
         private ToolStripMenuItem localEstoqueToolStripMenuItem;
+        private ToolStripMenuItem ordemDeServiçoToolStripMenuItem1;
+        private ToolStripMenuItem movimentaçãoToolStripMenuItem;
+        private ToolStripMenuItem itemEstoqueToolStripMenuItem;
     }
 }
 

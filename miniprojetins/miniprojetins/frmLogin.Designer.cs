@@ -104,6 +104,7 @@
             this.txtSen.PasswordChar = 'ඞ';
             this.txtSen.Size = new System.Drawing.Size(235, 23);
             this.txtSen.TabIndex = 2;
+            this.txtSen.Text = "123";
             // 
             // txtLog
             // 
@@ -111,6 +112,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.Size = new System.Drawing.Size(235, 23);
             this.txtLog.TabIndex = 1;
+            this.txtLog.Text = "admin";
             // 
             // label3
             // 

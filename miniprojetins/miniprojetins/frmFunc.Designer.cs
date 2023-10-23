@@ -69,6 +69,7 @@
             this.btoRem = new System.Windows.Forms.Button();
             this.btoAlt = new System.Windows.Forms.Button();
             this.btoCad = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.btoPesq);
             this.groupBox1.Controls.Add(this.cboStat);
             this.groupBox1.Controls.Add(this.label14);
@@ -491,6 +493,13 @@
             this.btoCad.UseVisualStyleBackColor = true;
             this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(311, 145);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.maskedTextBox1.TabIndex = 7;
+            // 
             // frmFunc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -559,5 +568,6 @@
         private Button btoAlt;
         private Button btoCad;
         private ComboBox cboUF;
+        private MaskedTextBox maskedTextBox1;
     }
 }

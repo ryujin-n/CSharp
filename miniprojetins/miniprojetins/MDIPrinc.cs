@@ -71,7 +71,25 @@ namespace miniprojetins
 
 
 
+        private void ordemDeServiçoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmOS frm = new frmOS();
+            frm.MdiParent = this;
+            frm.Show();
+        }
 
- 
+        private void movimentaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMov frm = new frmMov();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void itemEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmItemEst frm = new frmItemEst();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

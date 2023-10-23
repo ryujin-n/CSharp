@@ -87,3 +87,6 @@ C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\bin\D
 C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.csproj.CopyComplete
 C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.genruntimeconfig.cache
 C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\ref\miniprojetins.dll
+C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.frmItemEst.resources
+C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.frmMov.resources
+C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.frmOS.resources
