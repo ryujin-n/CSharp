@@ -176,6 +176,7 @@ namespace miniprojetins
 
         private void btoAlt_Click(object sender, EventArgs e)
         {
+            btoPesq.PerformClick();
             string sql = "update func set" +
                 "nome_funcionario='" + txtNom.Text + "'" + "," +
                 "nasc_funcionario='" +  DateTime.Parse(mtxtDNas.Text).ToString("yyyy-MM-dd") + "'" + "," +

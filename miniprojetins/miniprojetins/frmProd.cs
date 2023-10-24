@@ -131,6 +131,7 @@ namespace miniprojetins
 
         private void btoAlt_Click(object sender, EventArgs e)
         {
+            btoPesq.PerformClick();
             string sql = "update prod set" +
 
                     "nome_produto ='" + txtProd.Text + "'" + "," +

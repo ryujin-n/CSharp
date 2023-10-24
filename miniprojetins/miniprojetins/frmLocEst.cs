@@ -107,6 +107,7 @@ namespace miniprojetins
 
         private void btoAlt_Click(object sender, EventArgs e)
         {
+            btoPesq.PerformClick();
             string sql = "update locest set " +
                 "nome_LocalEstoque='" + txtNom.Text + "'" + "," +
                 "obs_LocalEstoque='" + txtObs.Text + "'" + "," +

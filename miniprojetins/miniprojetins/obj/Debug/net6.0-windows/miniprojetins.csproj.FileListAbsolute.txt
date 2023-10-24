@@ -90,3 +90,4 @@ C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\D
 C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.frmItemEst.resources
 C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.frmMov.resources
 C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\obj\Debug\net6.0-windows\miniprojetins.frmOS.resources
+C:\Users\miles.jsantos\Documents\GitHub\CSharp\miniprojetins\miniprojetins\bin\Debug\net6.0-windows\Correios.Net.dll

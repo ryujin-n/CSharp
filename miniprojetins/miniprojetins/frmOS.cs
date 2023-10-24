@@ -66,6 +66,10 @@ namespace miniprojetins
             {
                 MessageBox.Show("Erro: " + ex.ToString());
             } 
+            finally
+            {
+                conn.Close();
+            }
         }
 
 
@@ -140,6 +144,7 @@ namespace miniprojetins
 
         private void btoAlt_Click(object sender, EventArgs e)
         {
+            btoPesq.PerformClick();
             string sql = "update os set " +
 
                     "id_produto_os =" + cboIDprod.Text + "," +
@@ -220,7 +225,6 @@ namespace miniprojetins
                 reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    cboProd.SelectedIndex = cboIDprod.SelectedIndex;
 
                     txtID.Text = reader[0].ToString();
                     cboIDprod.Text = reader[1].ToString();
@@ -228,6 +232,8 @@ namespace miniprojetins
                     cboQntde.Value = Convert.ToDecimal(reader[3].ToString());
                     txtObs.Text = reader[4].ToString();
                     cboStat.Text = reader[5].ToString();
+
+                    cboProd.SelectedIndex = cboIDprod.SelectedIndex;
                 }
                 else
                 {
@@ -237,6 +243,10 @@ namespace miniprojetins
             catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

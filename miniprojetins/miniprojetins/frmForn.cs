@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Correios.Net;
 
 namespace miniprojetins
 {
@@ -18,7 +19,7 @@ namespace miniprojetins
         {
             InitializeComponent();
         }
-
+       
         private void testcon()
         {
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -188,6 +189,7 @@ namespace miniprojetins
 
         private void btoAlt_Click(object sender, EventArgs e)
         {
+            btoPesq.PerformClick();
             string sql = "update func set" +
                 "nome_fornecedor='" + txtNom.Text + "'" + "," +
                 "abert_fornecedor='" + mtxtAbe.Text + "'" + "," +
@@ -312,6 +314,34 @@ namespace miniprojetins
         private void frmForn_Load(object sender, EventArgs e)
         {
             testcon();
+        }
+
+        private void ceplook()
+        {
+            if (!string.IsNullOrWhiteSpace(txttest.Text))
+            {
+                Address endereco = SearchZip.GetAddress(txttest.Text);
+                if (endereco.Zip != null)
+                {
+                    cboUF.Text = endereco.State;
+                    txtCid.Text = endereco.City;
+                    txtBai.Text = endereco.District;
+                    txtEnd.Text = endereco.Street;
+                }
+                else
+                {
+                    MessageBox.Show("CEP não localizado...");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Informe um CEP válido");
+            }
+        }
+
+        private void txttest_Leave(object sender, EventArgs e)
+        {
+            ceplook();
         }
     }
 }

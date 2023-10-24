@@ -31,6 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mtxtDat = new System.Windows.Forms.MaskedTextBox();
             this.cboFunc = new System.Windows.Forms.ComboBox();
+            this.cboIDfunc = new System.Windows.Forms.ComboBox();
+            this.cboIDprod = new System.Windows.Forms.ComboBox();
             this.cboProd = new System.Windows.Forms.ComboBox();
             this.cboTipM = new System.Windows.Forms.ComboBox();
             this.cboQntde = new System.Windows.Forms.NumericUpDown();
@@ -60,6 +62,8 @@
             // 
             this.groupBox1.Controls.Add(this.mtxtDat);
             this.groupBox1.Controls.Add(this.cboFunc);
+            this.groupBox1.Controls.Add(this.cboIDfunc);
+            this.groupBox1.Controls.Add(this.cboIDprod);
             this.groupBox1.Controls.Add(this.cboProd);
             this.groupBox1.Controls.Add(this.cboTipM);
             this.groupBox1.Controls.Add(this.cboQntde);
@@ -93,6 +97,26 @@
             this.cboFunc.Name = "cboFunc";
             this.cboFunc.Size = new System.Drawing.Size(121, 23);
             this.cboFunc.TabIndex = 4;
+            // 
+            // cboIDfunc
+            // 
+            this.cboIDfunc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIDfunc.FormattingEnabled = true;
+            this.cboIDfunc.Location = new System.Drawing.Point(294, 112);
+            this.cboIDfunc.Name = "cboIDfunc";
+            this.cboIDfunc.Size = new System.Drawing.Size(67, 23);
+            this.cboIDfunc.TabIndex = 4;
+            this.cboIDfunc.Visible = false;
+            // 
+            // cboIDprod
+            // 
+            this.cboIDprod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIDprod.FormattingEnabled = true;
+            this.cboIDprod.Location = new System.Drawing.Point(294, 85);
+            this.cboIDprod.Name = "cboIDprod";
+            this.cboIDprod.Size = new System.Drawing.Size(67, 23);
+            this.cboIDprod.TabIndex = 4;
+            this.cboIDprod.Visible = false;
             // 
             // cboProd
             // 
@@ -208,6 +232,7 @@
             this.btoLimp.TabIndex = 0;
             this.btoLimp.Text = "Limpar";
             this.btoLimp.UseVisualStyleBackColor = true;
+            this.btoLimp.Click += new System.EventHandler(this.btoLimp_Click);
             // 
             // btoDel
             // 
@@ -217,6 +242,7 @@
             this.btoDel.TabIndex = 0;
             this.btoDel.Text = "Excluir";
             this.btoDel.UseVisualStyleBackColor = true;
+            this.btoDel.Click += new System.EventHandler(this.btoDel_Click);
             // 
             // cboStat
             // 
@@ -235,6 +261,7 @@
             this.btoSair.TabIndex = 0;
             this.btoSair.Text = "Sair";
             this.btoSair.UseVisualStyleBackColor = true;
+            this.btoSair.Click += new System.EventHandler(this.btoSair_Click);
             // 
             // btoAlt
             // 
@@ -244,6 +271,7 @@
             this.btoAlt.TabIndex = 0;
             this.btoAlt.Text = "Alterar";
             this.btoAlt.UseVisualStyleBackColor = true;
+            this.btoAlt.Click += new System.EventHandler(this.btoAlt_Click);
             // 
             // label7
             // 
@@ -262,6 +290,7 @@
             this.btoCad.TabIndex = 0;
             this.btoCad.Text = "Cadastrar";
             this.btoCad.UseVisualStyleBackColor = true;
+            this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
             // label6
             // 
@@ -291,6 +320,7 @@
             this.Name = "frmMov";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMov";
+            this.Load += new System.EventHandler(this.frmMov_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboQntde)).EndInit();
@@ -325,5 +355,7 @@
         private Button btoPesq;
         private ComboBox cboFunc;
         private ComboBox cboProd;
+        private ComboBox cboIDfunc;
+        private ComboBox cboIDprod;
     }
 }

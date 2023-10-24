@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btoStat = new System.Windows.Forms.ComboBox();
+            this.btoPesq = new System.Windows.Forms.Button();
+            this.cboStat = new System.Windows.Forms.ComboBox();
             this.cboLoc = new System.Windows.Forms.ComboBox();
+            this.cboIDloc = new System.Windows.Forms.ComboBox();
+            this.cboIDprod = new System.Windows.Forms.ComboBox();
             this.cboProd = new System.Windows.Forms.ComboBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.mtxtDat = new System.Windows.Forms.MaskedTextBox();
@@ -55,9 +57,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btoStat);
+            this.groupBox1.Controls.Add(this.btoPesq);
+            this.groupBox1.Controls.Add(this.cboStat);
             this.groupBox1.Controls.Add(this.cboLoc);
+            this.groupBox1.Controls.Add(this.cboIDloc);
+            this.groupBox1.Controls.Add(this.cboIDprod);
             this.groupBox1.Controls.Add(this.cboProd);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.mtxtDat);
@@ -71,23 +75,27 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // button1
+            // btoPesq
             // 
-            this.button1.Location = new System.Drawing.Point(58, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btoPesq.Location = new System.Drawing.Point(58, 37);
+            this.btoPesq.Name = "btoPesq";
+            this.btoPesq.Size = new System.Drawing.Size(25, 23);
+            this.btoPesq.TabIndex = 16;
+            this.btoPesq.Text = "...";
+            this.btoPesq.UseVisualStyleBackColor = true;
+            this.btoPesq.Click += new System.EventHandler(this.btoPesq_Click);
             // 
-            // btoStat
+            // cboStat
             // 
-            this.btoStat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.btoStat.FormattingEnabled = true;
-            this.btoStat.Location = new System.Drawing.Point(261, 84);
-            this.btoStat.Name = "btoStat";
-            this.btoStat.Size = new System.Drawing.Size(121, 23);
-            this.btoStat.TabIndex = 15;
+            this.cboStat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStat.FormattingEnabled = true;
+            this.cboStat.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
+            this.cboStat.Location = new System.Drawing.Point(261, 84);
+            this.cboStat.Name = "cboStat";
+            this.cboStat.Size = new System.Drawing.Size(121, 23);
+            this.cboStat.TabIndex = 15;
             // 
             // cboLoc
             // 
@@ -97,6 +105,26 @@
             this.cboLoc.Name = "cboLoc";
             this.cboLoc.Size = new System.Drawing.Size(121, 23);
             this.cboLoc.TabIndex = 15;
+            // 
+            // cboIDloc
+            // 
+            this.cboIDloc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIDloc.FormattingEnabled = true;
+            this.cboIDloc.Location = new System.Drawing.Point(386, 58);
+            this.cboIDloc.Name = "cboIDloc";
+            this.cboIDloc.Size = new System.Drawing.Size(67, 23);
+            this.cboIDloc.TabIndex = 15;
+            this.cboIDloc.Visible = false;
+            // 
+            // cboIDprod
+            // 
+            this.cboIDprod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIDprod.FormattingEnabled = true;
+            this.cboIDprod.Location = new System.Drawing.Point(386, 84);
+            this.cboIDprod.Name = "cboIDprod";
+            this.cboIDprod.Size = new System.Drawing.Size(67, 23);
+            this.cboIDprod.TabIndex = 15;
+            this.cboIDprod.Visible = false;
             // 
             // cboProd
             // 
@@ -207,6 +235,7 @@
             this.btoSair.TabIndex = 0;
             this.btoSair.Text = "Sair";
             this.btoSair.UseVisualStyleBackColor = true;
+            this.btoSair.Click += new System.EventHandler(this.btoSair_Click);
             // 
             // btoLimp
             // 
@@ -216,6 +245,7 @@
             this.btoLimp.TabIndex = 0;
             this.btoLimp.Text = "Limpar";
             this.btoLimp.UseVisualStyleBackColor = true;
+            this.btoLimp.Click += new System.EventHandler(this.btoLimp_Click);
             // 
             // btoDel
             // 
@@ -225,6 +255,7 @@
             this.btoDel.TabIndex = 0;
             this.btoDel.Text = "Excluir";
             this.btoDel.UseVisualStyleBackColor = true;
+            this.btoDel.Click += new System.EventHandler(this.btoDel_Click);
             // 
             // btoAlt
             // 
@@ -234,6 +265,7 @@
             this.btoAlt.TabIndex = 0;
             this.btoAlt.Text = "Alterar";
             this.btoAlt.UseVisualStyleBackColor = true;
+            this.btoAlt.Click += new System.EventHandler(this.btoAlt_Click);
             // 
             // btoCad
             // 
@@ -243,6 +275,7 @@
             this.btoCad.TabIndex = 0;
             this.btoCad.Text = "Cadastrar";
             this.btoCad.UseVisualStyleBackColor = true;
+            this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
             // frmItemEst
             // 
@@ -256,6 +289,7 @@
             this.Name = "frmItemEst";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmItemEst";
+            this.Load += new System.EventHandler(this.frmItemEst_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -278,8 +312,8 @@
         private MaskedTextBox mtxtDat;
         private TextBox txtID;
         private TextBox txtObs;
-        private Button button1;
-        private ComboBox btoStat;
+        private Button btoPesq;
+        private ComboBox cboStat;
         private ComboBox cboLoc;
         private ComboBox cboProd;
         private Button btoSair;
@@ -287,5 +321,7 @@
         private Button btoDel;
         private Button btoAlt;
         private Button btoCad;
+        private ComboBox cboIDprod;
+        private ComboBox cboIDloc;
     }
 }

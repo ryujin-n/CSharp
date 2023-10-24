@@ -113,6 +113,7 @@ namespace miniprojetins
 
         private void btoAlt_Click(object sender, EventArgs e)
         {
+            btoPesq.PerformClick();
             string sql = "update usuario set " +
                 "nome_usuario ='" + txtNom.Text + "'" + "," +
                 "login_usuario ='" + txtLog.Text + "'" + "," +

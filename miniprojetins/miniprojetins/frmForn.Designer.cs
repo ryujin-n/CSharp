@@ -38,6 +38,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txttest = new System.Windows.Forms.TextBox();
             this.mtxtCep = new System.Windows.Forms.MaskedTextBox();
             this.cboUF = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -160,6 +161,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txttest);
             this.groupBox2.Controls.Add(this.mtxtCep);
             this.groupBox2.Controls.Add(this.cboUF);
             this.groupBox2.Controls.Add(this.label4);
@@ -177,6 +179,14 @@
             this.groupBox2.Size = new System.Drawing.Size(481, 132);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // txttest
+            // 
+            this.txttest.Location = new System.Drawing.Point(179, 107);
+            this.txttest.Name = "txttest";
+            this.txttest.Size = new System.Drawing.Size(100, 23);
+            this.txttest.TabIndex = 7;
+            this.txttest.Leave += new System.EventHandler(this.txttest_Leave);
             // 
             // mtxtCep
             // 
@@ -559,5 +569,6 @@
         private Label label16;
         private ComboBox cboUF;
         private TextBox txtCont;
+        private TextBox txttest;
     }
 }
