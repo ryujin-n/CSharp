@@ -91,3 +91,51 @@ create table locest
 select * from locest
 drop table locest
 select * from locest
+
+create table os
+(
+	id_os int not null identity primary key ,
+	id_produto_os int not null  ,
+	data_os smalldatetime not null default getdate() ,
+	qtde_os int not null  ,
+	obs_os varchar(200) null  ,
+	status_os varchar(20) not null default 'ATIVO' 
+
+		constraint FK_id_produto_os foreign key (id_produto_os) references prod (id_produto)
+)
+
+select * from os
+
+create table itemest
+(
+	id_ItemEstoque int not null identity primary key ,
+	id_produto_ItemEstoque int not null  ,
+	id_localEstoque_ItemEstoque int not null  ,
+	data_ItemEstoque smalldatetime not null default getdate() ,
+	obs_ItemEstoque varchar(200) null  ,
+	status_ItemEstoque varchar(20) not null default 'ATIVO' ,
+
+	constraint FK_id_produto_ItemEstoque foreign key (id_produto_ItemEstoque) references prod (id_produto),
+	constraint FK_id_localEstoque_ItemEstoque foreign key (id_localEstoque_ItemEstoque) references locest (id_LocalEstoque)
+
+)
+select * from itemest
+drop table itemest
+
+create table mov
+(
+	id_mov int not null identity primary key ,
+	id_Produto_mov int not null  ,
+	id_funcionario_mov int not null  ,
+	qtde_mov int not null  ,
+	data_mov smalldatetime not null default getdate() ,
+	tipo_mov varchar(30) not null  ,
+	obs_mov varchar(200) null  ,
+	status_mov varchar(20) not null default 'ATIVO' 
+
+		constraint FK_id_produto_mov foreign key (id_produto_mov) references prod (id_produto),
+		constraint FK_id_funcionario_mov foreign key (id_funcionario_mov) references func (id_funcionario),
+
+)
+select * from mov
+drop table mov
