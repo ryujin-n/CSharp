@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\miles.jsantos\\Documents\\GitHub\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj": {}
+    "C:\\Users\\miles.jsantos\\source\\repos\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj": {}
   },
   "projects": {
-    "C:\\Users\\miles.jsantos\\Documents\\GitHub\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj": {
+    "C:\\Users\\miles.jsantos\\source\\repos\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\miles.jsantos\\Documents\\GitHub\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
+        "projectUniqueName": "C:\\Users\\miles.jsantos\\source\\repos\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
         "projectName": "miniprojetins",
-        "projectPath": "C:\\Users\\miles.jsantos\\Documents\\GitHub\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
+        "projectPath": "C:\\Users\\miles.jsantos\\source\\repos\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
         "packagesPath": "C:\\Users\\miles.jsantos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\miles.jsantos\\Documents\\GitHub\\CSharp\\miniprojetins\\miniprojetins\\obj\\",
+        "outputPath": "C:\\Users\\miles.jsantos\\source\\repos\\CSharp\\miniprojetins\\miniprojetins\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

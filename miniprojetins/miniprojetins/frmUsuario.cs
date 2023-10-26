@@ -30,6 +30,7 @@ namespace miniprojetins
         private void frmProjetin_Load(object sender, EventArgs e)
         {
             testcon();
+            CarregarDataGrid();
         }
 
         private void btoLimp_Click(object sender, EventArgs e)
@@ -213,6 +214,52 @@ namespace miniprojetins
             {
                 conn.Close();
             }
+
+            
+        }
+
+        private void CarregarDataGrid()
+        {
+            string sql = "select id_usuario as 'ID'," +
+                " nome_usuario as 'Nome'," +
+                "status_usuario as 'Status'," +
+                "obs_usuario as 'Observação'" +
+                "from usuario where nome_usuario like '%" + txtdatagrid.Text + "%'";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtUser.DataSource = ds.Tables[0];
+                dtUser.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtUser.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void txtdatagrid_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
+
+        private void dtUser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dtUser.CurrentRow.Cells["ID"].Value.ToString();
+            btoPesq.PerformClick();
         }
     }
 }

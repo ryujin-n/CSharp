@@ -20,6 +20,8 @@ namespace miniprojetins
             InitializeComponent();
         }
 
+
+
         private void btoPesq_Click(object sender, EventArgs e)
         {
             string sql = "select * from locest where id_LocalEstoque=" + txtID.Text;
@@ -57,10 +59,6 @@ namespace miniprojetins
             }
         }
 
-        private void frmLocEst_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btoSair_Click_1(object sender, EventArgs e)
         {
@@ -142,7 +140,7 @@ namespace miniprojetins
         {
             string sql = "set dateformat dmy insert into locest (nome_LocalEstoque,obs_LocalEstoque) " +
                 "values " +
-                        "(" + "'" + txtNom.Text + "'" + "," + "'" + txtObs.Text + "'" + ")" 
+                        "(" + "'" + txtNom.Text + "'" + "," + "'" + txtObs.Text + "'" + ")"
                         + "select SCOPE_IDENTITY()";
 
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -175,6 +173,55 @@ namespace miniprojetins
             {
                 conn.Close();
             }
+        }
+
+        private void CarregarDataGrid()
+        {
+            string sql = "select itemest.id_ItemEstoque as 'ID', prod.nome_produto as 'Produto',locest.nome_LocalEstoque as 'Local Estoque',obs_ItemEstoque as 'Observação' " +
+                            "from itemest " +
+                            "inner join prod " +
+                            "on itemest.id_produto_ItemEstoque = prod.id_produto " +
+                            "inner join locest " +
+                            "on itemest.id_localEstoque_ItemEstoque = locest.id_LocalEstoque";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtLocest.DataSource = ds.Tables[0];
+                dtLocest.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtLocest.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void txtdatagrid_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
+
+        private void dtLocest_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dtLocest.CurrentRow.Cells["ID"].Value.ToString();
+            btoPesq.PerformClick();
+        }
+        private void frmLocEst_Load(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
         }
     }
 }

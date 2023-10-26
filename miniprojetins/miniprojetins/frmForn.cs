@@ -19,7 +19,38 @@ namespace miniprojetins
         {
             InitializeComponent();
         }
-       
+       private void CarregarDataGrid()
+        {
+            string sql = "select id_fornecedor as 'ID'," +
+                " nome_fornecedor as 'Nome'," +
+                "status_fornecedor as 'Status'," +
+                "obs_fornecedor as 'Observação'" +
+                "from forn where nome_fornecedor like '%" + txtdatagrid.Text + "%'";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtForn.DataSource = ds.Tables[0];
+                dtForn.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtForn.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         private void testcon()
         {
             SqlConnection conn = new SqlConnection(stringConexao);
@@ -314,6 +345,7 @@ namespace miniprojetins
         private void frmForn_Load(object sender, EventArgs e)
         {
             testcon();
+            CarregarDataGrid();
         }
 
         private void ceplook()
@@ -342,6 +374,21 @@ namespace miniprojetins
         private void txttest_Leave(object sender, EventArgs e)
         {
             ceplook();
+        }
+        private void dtForn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dtForn.CurrentRow.Cells["ID"].Value.ToString();
+            btoPesq.PerformClick();
+        }
+
+        private void txtdatagrid_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
+
+        private void dtForn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

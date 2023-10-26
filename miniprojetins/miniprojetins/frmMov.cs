@@ -111,6 +111,7 @@ namespace miniprojetins
 
         private void frmMov_Load(object sender, EventArgs e)
         {
+            CarregarDataGrid();
             CarregarCbo1();
             CarregarCbo2();
 
@@ -154,7 +155,7 @@ namespace miniprojetins
             try
             {
 
-                if (cboProd.SelectedIndex == -1 || cboFunc.SelectedIndex == -1|| cboTipM.SelectedIndex == -1 || cboQntde.Value == 0)
+                if (cboProd.SelectedIndex == -1 || cboFunc.SelectedIndex == -1 || cboTipM.SelectedIndex == -1 || cboQntde.Value == 0)
                 {
                     MessageBox.Show("no");
                     return;
@@ -169,6 +170,7 @@ namespace miniprojetins
                     MessageBox.Show("Cadastro Concluído");
 
                     btoPesq.PerformClick();
+                    CarregarDataGrid();
 
                 }
             }
@@ -211,12 +213,13 @@ namespace miniprojetins
 
             try
             {
-                
+
                 int i = cmd.ExecuteNonQuery();
-               
+
                 if (i > 0)
                 {
                     MessageBox.Show("Alteração realizada com sucesso");
+                    CarregarDataGrid();
                 }
 
             }
@@ -246,6 +249,8 @@ namespace miniprojetins
                 if (i > 0)
                 {
                     MessageBox.Show("Dados Excluidos com sucesso");
+                    CarregarDataGrid();
+                    btoLimp.PerformClick();
                 }
 
             }
@@ -257,6 +262,95 @@ namespace miniprojetins
             {
                 conn.Close();
             }
+        }
+        private void CarregarDataGrid()
+        {
+            string sql = "select mov.id_mov as 'ID', prod.nome_produto as 'Produto',func.nome_funcionario as 'Funcionário',qtde_mov as 'Quantidade',obs_mov as 'Observação' " +
+                            "from mov " +
+                            "inner join prod " +
+                            "on mov.id_produto_mov = prod.id_produto " +
+                            "inner " +
+                            "join func " +
+                            "on mov.id_funcionario_mov = func.id_funcionario";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtMov.DataSource = ds.Tables[0];
+                dtMov.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtMov.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void dtMov_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dtMov.CurrentRow.Cells["ID"].Value.ToString();
+            btoPesq.PerformClick();
+        }
+
+        private void txtdatagrid_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
+
+        private void btoPesq_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from mov where id_mov=" + txtID.Text;
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader reader;
+            conn.Open();
+
+            try
+            {
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    txtID.Text = reader[0].ToString();
+                    cboProd.Text = reader[1].ToString();
+                    cboFunc.Text = reader[2].ToString();
+                    cboQntde.Text = reader[3].ToString();
+                    mtxtDat.Text = reader[4].ToString();
+                    cboTipM.Text = reader[5].ToString();
+                    txtObs.Text = reader[6].ToString();
+                    cboStat.Text = reader[7].ToString();
+
+                    cboProd.SelectedIndex = cboIDprod.SelectedIndex;
+                    cboFunc.SelectedIndex = cboIDfunc.SelectedIndex;
+                }
+                else
+                {
+                    MessageBox.Show("Código não encontrado");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
         }
     }
 }

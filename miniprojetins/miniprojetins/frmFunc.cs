@@ -34,7 +34,6 @@ namespace miniprojetins
             txtCid.Text = "";
             txtComp.Text = "";
             txtObs.Text = "";
-            cboUF.Text = "";
             txtNum.Text = "";
             txtEnd.Text = "";
 
@@ -46,6 +45,7 @@ namespace miniprojetins
             mtxtTel2.Text = "";
             
             cboStat.SelectedIndex = -1;
+            cboUF.SelectedIndex = -1;
             
         }
 
@@ -176,11 +176,13 @@ namespace miniprojetins
 
         private void btoAlt_Click(object sender, EventArgs e)
         {
-            btoPesq.PerformClick();
-            string sql = "update func set" +
+            string cpf = mtxtCPF.Text;
+            cpf = cpf.Replace(",", ".");
+
+            string sql = "update func set " +
                 "nome_funcionario='" + txtNom.Text + "'" + "," +
                 "nasc_funcionario='" +  DateTime.Parse(mtxtDNas.Text).ToString("yyyy-MM-dd") + "'" + "," +
-                "cpf_funcionario='" + mtxtCPF.Text + "'" + "," +
+                "cpf_funcionario='" + cpf + "'" + "," +
                 "logradouro_funcionario='" + txtEnd.Text + "'" + "," +
                 "numero_funcionario='" + txtNum.Text + "'" + "," +
                 "comp_funcionario='" + txtComp.Text + "'" + "," +
@@ -208,9 +210,9 @@ namespace miniprojetins
                     MessageBox.Show("Alteração realizada com sucesso");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro: Não foi possível alterar o dado");
+                MessageBox.Show("Erro: " + ex.ToString());
             }
             finally
             {
@@ -295,9 +297,53 @@ namespace miniprojetins
             }
         }
 
+        private void CarregarDataGrid()
+        {
+            string sql = "select id_funcionario as 'ID'," +
+                " nome_funcionario as 'Nome'," +
+                "status_funcionario as 'Status'," +
+                "obs_funcionario as 'Observação'" +
+                "from func where nome_funcionario like '%" + txtdatagrid.Text + "%'";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtFunc.DataSource = ds.Tables[0];
+                dtFunc.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtFunc.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         private void frmFunc_Load(object sender, EventArgs e)
         {
+            CarregarDataGrid();
+        }
 
+        private void txtdatagrid_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
+        }
+
+        private void dtFunc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dtFunc.CurrentRow.Cells["ID"].Value.ToString();
+            btoPesq.PerformClick();
         }
     }
 }

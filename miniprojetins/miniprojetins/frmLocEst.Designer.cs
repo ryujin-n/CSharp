@@ -46,9 +46,12 @@
             this.btoDel = new System.Windows.Forms.Button();
             this.btoAlt = new System.Windows.Forms.Button();
             this.btoCad = new System.Windows.Forms.Button();
+            this.dtLocest = new System.Windows.Forms.DataGridView();
+            this.txtdatagrid = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtLocest)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -226,11 +229,33 @@
             this.btoCad.UseVisualStyleBackColor = true;
             this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
+            // dtLocest
+            // 
+            this.dtLocest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtLocest.Location = new System.Drawing.Point(491, 45);
+            this.dtLocest.Name = "dtLocest";
+            this.dtLocest.ReadOnly = true;
+            this.dtLocest.RowTemplate.Height = 25;
+            this.dtLocest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtLocest.Size = new System.Drawing.Size(340, 228);
+            this.dtLocest.TabIndex = 9;
+            this.dtLocest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtLocest_CellClick);
+            // 
+            // txtdatagrid
+            // 
+            this.txtdatagrid.Location = new System.Drawing.Point(491, 19);
+            this.txtdatagrid.Name = "txtdatagrid";
+            this.txtdatagrid.Size = new System.Drawing.Size(340, 23);
+            this.txtdatagrid.TabIndex = 8;
+            this.txtdatagrid.TextChanged += new System.EventHandler(this.txtdatagrid_TextChanged);
+            // 
             // frmLocEst
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 285);
+            this.ClientSize = new System.Drawing.Size(839, 285);
+            this.Controls.Add(this.dtLocest);
+            this.Controls.Add(this.txtdatagrid);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -244,7 +269,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtLocest)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -267,5 +294,7 @@
         private Button btoDel;
         private Button btoAlt;
         private Button btoCad;
+        private DataGridView dtLocest;
+        private TextBox txtdatagrid;
     }
 }

@@ -38,6 +38,7 @@ namespace miniprojetins
         private void frmProd_Load(object sender, EventArgs e)
         {
             testcon();
+            CarregarDataGrid();
         }
 
         private void btoSair_Click(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace miniprojetins
             txtVu.Text = "";
             mtxtDat.Text = "";
             cboQtde.Text = "";
-            cboStat.SelectedIndex = -1 ;
+            cboStat.SelectedIndex = -1;
         }
 
         private void btoCad_Click(object sender, EventArgs e)
@@ -272,6 +273,50 @@ namespace miniprojetins
             {
                 txtVa.Text = "";
             }
+        }
+
+        private void CarregarDataGrid()
+        {
+            string sql = "select id_produto as 'ID'," +
+                " nome_produto as 'Nome'," +
+                "status_produto as 'Status'," +
+                "obs_produto as 'Observação'" +
+                "from prod where nome_produto like '%" + txtdatagrid.Text + "%'";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtProd.DataSource = ds.Tables[0];
+                dtProd.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtProd.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void dtProd_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dtProd.CurrentRow.Cells["ID"].Value.ToString();
+            btoPesq.PerformClick();
+        }
+
+        private void txtdatagrid_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.btoPesq = new System.Windows.Forms.Button();
             this.cboStat = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,11 +70,13 @@
             this.btoRem = new System.Windows.Forms.Button();
             this.btoAlt = new System.Windows.Forms.Button();
             this.btoCad = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.dtFunc = new System.Windows.Forms.DataGridView();
+            this.txtdatagrid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFunc)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -97,6 +100,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(311, 145);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.maskedTextBox1.TabIndex = 7;
+            // 
             // btoPesq
             // 
             this.btoPesq.Location = new System.Drawing.Point(58, 36);
@@ -111,6 +121,9 @@
             // 
             this.cboStat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStat.FormattingEnabled = true;
+            this.cboStat.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
             this.cboStat.Location = new System.Drawing.Point(326, 92);
             this.cboStat.Name = "cboStat";
             this.cboStat.Size = new System.Drawing.Size(121, 23);
@@ -493,18 +506,33 @@
             this.btoCad.UseVisualStyleBackColor = true;
             this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
-            // maskedTextBox1
+            // dtFunc
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(311, 145);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.maskedTextBox1.TabIndex = 7;
+            this.dtFunc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtFunc.Location = new System.Drawing.Point(498, 74);
+            this.dtFunc.Name = "dtFunc";
+            this.dtFunc.ReadOnly = true;
+            this.dtFunc.RowTemplate.Height = 25;
+            this.dtFunc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtFunc.Size = new System.Drawing.Size(340, 457);
+            this.dtFunc.TabIndex = 7;
+            this.dtFunc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtFunc_CellClick);
+            // 
+            // txtdatagrid
+            // 
+            this.txtdatagrid.Location = new System.Drawing.Point(498, 48);
+            this.txtdatagrid.Name = "txtdatagrid";
+            this.txtdatagrid.Size = new System.Drawing.Size(340, 23);
+            this.txtdatagrid.TabIndex = 6;
+            this.txtdatagrid.TextChanged += new System.EventHandler(this.txtdatagrid_TextChanged);
             // 
             // frmFunc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 542);
+            this.ClientSize = new System.Drawing.Size(850, 542);
+            this.Controls.Add(this.dtFunc);
+            this.Controls.Add(this.txtdatagrid);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -521,7 +549,9 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtFunc)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -569,5 +599,7 @@
         private Button btoCad;
         private ComboBox cboUF;
         private MaskedTextBox maskedTextBox1;
+        private DataGridView dtFunc;
+        private TextBox txtdatagrid;
     }
 }

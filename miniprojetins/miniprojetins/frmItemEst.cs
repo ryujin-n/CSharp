@@ -113,6 +113,8 @@ namespace miniprojetins
 
         private void frmItemEst_Load(object sender, EventArgs e)
         {
+
+            CarregarDataGrid();
             CarregarCbo1();
             CarregarCbo2();
 
@@ -242,8 +244,8 @@ namespace miniprojetins
                 MessageBox.Show("Erro: " + ex.ToString());
             }
             finally
-            { 
-                conn.Close(); 
+            {
+                conn.Close();
             }
         }
 
@@ -278,6 +280,40 @@ namespace miniprojetins
                     MessageBox.Show("Código não encontrado");
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void CarregarDataGrid()
+        {
+            string sql = "select itemest.id_ItemEstoque as 'ID', prod.nome_produto as 'Produto',locest.nome_LocalEstoque as 'Local Estoque',obs_ItemEstoque as 'Observação' " +
+                            "from itemest " +
+                            "inner join prod " +
+                            "on itemest.id_produto_ItemEstoque = prod.id_produto " +
+                            "inner join locest " +
+                            "on itemest.id_localEstoque_ItemEstoque = locest.id_LocalEstoque";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtItemest.DataSource = ds.Tables[0];
+                dtItemest.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtItemest.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.ToString());

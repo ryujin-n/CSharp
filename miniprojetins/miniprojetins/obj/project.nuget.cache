@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "852mVhRCXXwfTGaJ+LwPADxQSt9a93/zi9jSYAfI+DZpK6iCIa0WJJPEWoKCMxEzqaFNW72VFKgLVfefMqK/DA==",
+  "dgSpecHash": "3iCWgRFfHjfMohsqUonaIq0Q/ejuYB5J5VZxby6oaMFpqzx8g1U7c5fmXVBZ4nYK7Cbn81z+PYhZh1jWmTGe8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\miles.jsantos\\Documents\\GitHub\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
+  "projectFilePath": "C:\\Users\\miles.jsantos\\source\\repos\\CSharp\\miniprojetins\\miniprojetins\\miniprojetins.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\miles.jsantos\\.nuget\\packages\\correios.cep.net\\1.1.6\\correios.cep.net.1.1.6.nupkg.sha512",
     "C:\\Users\\miles.jsantos\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

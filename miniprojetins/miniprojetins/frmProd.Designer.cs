@@ -52,10 +52,13 @@
             this.btoRem = new System.Windows.Forms.Button();
             this.btoAlt = new System.Windows.Forms.Button();
             this.btoCad = new System.Windows.Forms.Button();
+            this.dtProd = new System.Windows.Forms.DataGridView();
+            this.txtdatagrid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboQtde)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProd)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -294,11 +297,33 @@
             this.btoCad.UseVisualStyleBackColor = true;
             this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
+            // dtProd
+            // 
+            this.dtProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtProd.Location = new System.Drawing.Point(497, 56);
+            this.dtProd.Name = "dtProd";
+            this.dtProd.ReadOnly = true;
+            this.dtProd.RowTemplate.Height = 25;
+            this.dtProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtProd.Size = new System.Drawing.Size(340, 407);
+            this.dtProd.TabIndex = 9;
+            this.dtProd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProd_CellClick);
+            // 
+            // txtdatagrid
+            // 
+            this.txtdatagrid.Location = new System.Drawing.Point(497, 30);
+            this.txtdatagrid.Name = "txtdatagrid";
+            this.txtdatagrid.Size = new System.Drawing.Size(340, 23);
+            this.txtdatagrid.TabIndex = 8;
+            this.txtdatagrid.TextChanged += new System.EventHandler(this.txtdatagrid_TextChanged);
+            // 
             // frmProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 475);
+            this.ClientSize = new System.Drawing.Size(844, 475);
+            this.Controls.Add(this.dtProd);
+            this.Controls.Add(this.txtdatagrid);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -313,7 +338,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtProd)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -343,5 +370,7 @@
         private Button btoRem;
         private Button btoAlt;
         private Button btoCad;
+        private DataGridView dtProd;
+        private TextBox txtdatagrid;
     }
 }

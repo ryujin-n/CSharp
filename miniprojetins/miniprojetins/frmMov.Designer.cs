@@ -53,9 +53,12 @@
             this.btoCad = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
+            this.dtMov = new System.Windows.Forms.DataGridView();
+            this.txtdatagrid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboQntde)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtMov)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -163,6 +166,7 @@
             this.btoPesq.TabIndex = 0;
             this.btoPesq.Text = "...";
             this.btoPesq.UseVisualStyleBackColor = true;
+            this.btoPesq.Click += new System.EventHandler(this.btoPesq_Click);
             // 
             // label3
             // 
@@ -309,11 +313,33 @@
             this.txtObs.Size = new System.Drawing.Size(204, 125);
             this.txtObs.TabIndex = 2;
             // 
+            // dtMov
+            // 
+            this.dtMov.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtMov.Location = new System.Drawing.Point(400, 49);
+            this.dtMov.Name = "dtMov";
+            this.dtMov.ReadOnly = true;
+            this.dtMov.RowTemplate.Height = 25;
+            this.dtMov.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtMov.Size = new System.Drawing.Size(340, 311);
+            this.dtMov.TabIndex = 9;
+            this.dtMov.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtMov_CellClick);
+            // 
+            // txtdatagrid
+            // 
+            this.txtdatagrid.Location = new System.Drawing.Point(400, 23);
+            this.txtdatagrid.Name = "txtdatagrid";
+            this.txtdatagrid.Size = new System.Drawing.Size(340, 23);
+            this.txtdatagrid.TabIndex = 8;
+            this.txtdatagrid.TextChanged += new System.EventHandler(this.txtdatagrid_TextChanged);
+            // 
             // frmMov
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 369);
+            this.ClientSize = new System.Drawing.Size(754, 369);
+            this.Controls.Add(this.dtMov);
+            this.Controls.Add(this.txtdatagrid);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -326,7 +352,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboQntde)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtMov)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -357,5 +385,7 @@
         private ComboBox cboProd;
         private ComboBox cboIDfunc;
         private ComboBox cboIDprod;
+        private DataGridView dtMov;
+        private TextBox txtdatagrid;
     }
 }

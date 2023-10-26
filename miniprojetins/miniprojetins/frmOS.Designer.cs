@@ -49,10 +49,13 @@
             this.btoDel = new System.Windows.Forms.Button();
             this.btoAlt = new System.Windows.Forms.Button();
             this.btoCad = new System.Windows.Forms.Button();
+            this.dtOS = new System.Windows.Forms.DataGridView();
+            this.txtdatagrid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboQntde)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtOS)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -73,6 +76,7 @@
             this.groupBox1.Size = new System.Drawing.Size(460, 119);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // cboQntde
             // 
@@ -261,11 +265,31 @@
             this.btoCad.UseVisualStyleBackColor = true;
             this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
+            // dtOS
+            // 
+            this.dtOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtOS.Location = new System.Drawing.Point(478, 47);
+            this.dtOS.Name = "dtOS";
+            this.dtOS.ReadOnly = true;
+            this.dtOS.RowTemplate.Height = 25;
+            this.dtOS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtOS.Size = new System.Drawing.Size(340, 243);
+            this.dtOS.TabIndex = 9;
+            // 
+            // txtdatagrid
+            // 
+            this.txtdatagrid.Location = new System.Drawing.Point(478, 21);
+            this.txtdatagrid.Name = "txtdatagrid";
+            this.txtdatagrid.Size = new System.Drawing.Size(340, 23);
+            this.txtdatagrid.TabIndex = 8;
+            // 
             // frmOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 299);
+            this.ClientSize = new System.Drawing.Size(827, 299);
+            this.Controls.Add(this.dtOS);
+            this.Controls.Add(this.txtdatagrid);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -280,7 +304,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtOS)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -307,5 +333,7 @@
         private Button btoPesq;
         private NumericUpDown cboQntde;
         private ComboBox cboIDprod;
+        private DataGridView dtOS;
+        private TextBox txtdatagrid;
     }
 }

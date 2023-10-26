@@ -50,9 +50,12 @@
             this.btoDel = new System.Windows.Forms.Button();
             this.btoAlt = new System.Windows.Forms.Button();
             this.btoCad = new System.Windows.Forms.Button();
+            this.txtdatagrid = new System.Windows.Forms.TextBox();
+            this.dtItemest = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtItemest)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -277,11 +280,29 @@
             this.btoCad.UseVisualStyleBackColor = true;
             this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
+            // txtdatagrid
+            // 
+            this.txtdatagrid.Location = new System.Drawing.Point(477, 17);
+            this.txtdatagrid.Name = "txtdatagrid";
+            this.txtdatagrid.Size = new System.Drawing.Size(340, 23);
+            this.txtdatagrid.TabIndex = 8;
+            // 
+            // dtItemest
+            // 
+            this.dtItemest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtItemest.Location = new System.Drawing.Point(477, 46);
+            this.dtItemest.Name = "dtItemest";
+            this.dtItemest.RowTemplate.Height = 25;
+            this.dtItemest.Size = new System.Drawing.Size(340, 285);
+            this.dtItemest.TabIndex = 9;
+            // 
             // frmItemEst
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 342);
+            this.ClientSize = new System.Drawing.Size(825, 342);
+            this.Controls.Add(this.dtItemest);
+            this.Controls.Add(this.txtdatagrid);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -295,7 +316,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtItemest)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -323,5 +346,7 @@
         private Button btoCad;
         private ComboBox cboIDprod;
         private ComboBox cboIDloc;
+        private TextBox txtdatagrid;
+        private DataGridView dtItemest;
     }
 }

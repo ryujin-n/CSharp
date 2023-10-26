@@ -70,10 +70,13 @@
             this.btoRem = new System.Windows.Forms.Button();
             this.btoAlt = new System.Windows.Forms.Button();
             this.btoCad = new System.Windows.Forms.Button();
+            this.dtForn = new System.Windows.Forms.DataGridView();
+            this.txtdatagrid = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtForn)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -86,9 +89,9 @@
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.txtObs);
-            this.groupBox3.Location = new System.Drawing.Point(12, 315);
+            this.groupBox3.Location = new System.Drawing.Point(12, 313);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(481, 163);
+            this.groupBox3.Size = new System.Drawing.Size(481, 156);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             // 
@@ -176,7 +179,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(12, 186);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(481, 132);
+            this.groupBox2.Size = new System.Drawing.Size(481, 121);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
@@ -349,15 +352,15 @@
             // 
             this.cboStat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStat.FormattingEnabled = true;
-            this.cboStat.Location = new System.Drawing.Point(346, 92);
+            this.cboStat.Location = new System.Drawing.Point(377, 92);
             this.cboStat.Name = "cboStat";
-            this.cboStat.Size = new System.Drawing.Size(121, 23);
+            this.cboStat.Size = new System.Drawing.Size(88, 23);
             this.cboStat.TabIndex = 5;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(345, 74);
+            this.label14.Location = new System.Drawing.Point(376, 74);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 15);
             this.label14.TabIndex = 1;
@@ -368,7 +371,7 @@
             this.mtxtCNPJ.Location = new System.Drawing.Point(245, 92);
             this.mtxtCNPJ.Mask = "##.###.###/####-##";
             this.mtxtCNPJ.Name = "mtxtCNPJ";
-            this.mtxtCNPJ.Size = new System.Drawing.Size(95, 23);
+            this.mtxtCNPJ.Size = new System.Drawing.Size(117, 23);
             this.mtxtCNPJ.TabIndex = 4;
             // 
             // mtxtAbe
@@ -445,7 +448,7 @@
             this.groupBox4.Controls.Add(this.btoRem);
             this.groupBox4.Controls.Add(this.btoAlt);
             this.groupBox4.Controls.Add(this.btoCad);
-            this.groupBox4.Location = new System.Drawing.Point(12, 475);
+            this.groupBox4.Location = new System.Drawing.Point(12, 473);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(481, 37);
             this.groupBox4.TabIndex = 4;
@@ -501,15 +504,38 @@
             this.btoCad.UseVisualStyleBackColor = true;
             this.btoCad.Click += new System.EventHandler(this.btoCad_Click);
             // 
+            // dtForn
+            // 
+            this.dtForn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtForn.Location = new System.Drawing.Point(499, 71);
+            this.dtForn.Name = "dtForn";
+            this.dtForn.ReadOnly = true;
+            this.dtForn.RowTemplate.Height = 25;
+            this.dtForn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtForn.Size = new System.Drawing.Size(329, 439);
+            this.dtForn.TabIndex = 5;
+            this.dtForn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtForn_CellClick);
+            this.dtForn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtForn_CellContentClick);
+            // 
+            // txtdatagrid
+            // 
+            this.txtdatagrid.Location = new System.Drawing.Point(499, 45);
+            this.txtdatagrid.Name = "txtdatagrid";
+            this.txtdatagrid.Size = new System.Drawing.Size(329, 23);
+            this.txtdatagrid.TabIndex = 3;
+            this.txtdatagrid.TextChanged += new System.EventHandler(this.txtdatagrid_TextChanged);
+            // 
             // frmForn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 518);
+            this.ClientSize = new System.Drawing.Size(836, 518);
+            this.Controls.Add(this.dtForn);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtdatagrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmForn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -522,7 +548,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtForn)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -570,5 +598,7 @@
         private ComboBox cboUF;
         private TextBox txtCont;
         private TextBox txttest;
+        private DataGridView dtForn;
+        private TextBox txtdatagrid;
     }
 }

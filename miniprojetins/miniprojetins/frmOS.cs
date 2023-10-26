@@ -65,7 +65,7 @@ namespace miniprojetins
             catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.ToString());
-            } 
+            }
             finally
             {
                 conn.Close();
@@ -75,6 +75,7 @@ namespace miniprojetins
 
         private void frmOS_Load(object sender, EventArgs e)
         {
+            CarregarDataGrid();
             TestarConexao();
             CarregarCbo();
 
@@ -176,8 +177,8 @@ namespace miniprojetins
                 MessageBox.Show("Erro: " + ex.ToString());
             }
             finally
-            { 
-                conn.Close(); 
+            {
+                conn.Close();
             }
         }
 
@@ -248,6 +249,42 @@ namespace miniprojetins
             {
                 conn.Close();
             }
+        }
+        private void CarregarDataGrid()
+        {
+            string sql = "select os.id_os as 'ID', prod.nome_produto as 'Produto',qtde_os as 'Quantidade',obs_os as 'Observação' " +
+                            "from os " +
+                            "inner join prod " +
+                            "on os.id_produto_os = prod.id_produto ";
+
+            SqlConnection conn = new SqlConnection(stringConexao);
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            try
+            {
+                ad.Fill(ds);
+
+                dtOS.DataSource = ds.Tables[0];
+                dtOS.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dtOS.AutoResizeRow(0, DataGridViewAutoSizeRowMode.AllCellsExceptHeader);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
