@@ -106,6 +106,11 @@ create table os
 
 select * from os
 
+select os.id_os, prod.nome_produto,data_os,qtde_os,obs_os
+from os
+inner join prod
+on os.id_produto_os = prod.id_produto
+
 create table itemest
 (
 	id_ItemEstoque int not null identity primary key ,
@@ -119,6 +124,14 @@ create table itemest
 	constraint FK_id_localEstoque_ItemEstoque foreign key (id_localEstoque_ItemEstoque) references locest (id_LocalEstoque)
 
 )
+
+select itemest.id_ItemEstoque, prod.nome_produto,locest.nome_LocalEstoque,obs_ItemEstoque
+from itemest
+inner join prod
+on itemest.id_produto_ItemEstoque = prod.id_produto
+inner join locest
+on itemest.id_localEstoque_ItemEstoque = locest.id_LocalEstoque
+
 select * from itemest
 drop table itemest
 
@@ -137,5 +150,12 @@ create table mov
 		constraint FK_id_funcionario_mov foreign key (id_funcionario_mov) references func (id_funcionario),
 
 )
+
+select mov.id_mov as 'ID', prod.nome_produto as 'Produto',func.nome_funcionario as 'Funcionário',qtde_os as 'Quantidade',obs_mov as 'Observação' 
+                            from mov 
+                            inner join prod
+                            on mov.id_produto_mov = prod.id_produto 
+                            inner join func 
+                            on mov.id_funcionario_mov = func.id_funcionario
 select * from mov
 drop table mov
